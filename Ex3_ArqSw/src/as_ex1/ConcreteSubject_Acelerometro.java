@@ -10,11 +10,10 @@ import java.util.Random;
 public class ConcreteSubject_Acelerometro implements Subject{
     private List<Monitor> observers = new ArrayList<Monitor>();
     private float acelerometro;
- 
-    public ConcreteSubject_Acelerometro(){}
     
-    public ConcreteSubject_Acelerometro(float temp) {
-            this.acelerometro = temp;
+    
+    public ConcreteSubject_Acelerometro() {
+       
     }
 
     @Override
@@ -22,6 +21,8 @@ public class ConcreteSubject_Acelerometro implements Subject{
        observers.add(cli);
      
     }
+    
+    
 
     @Override
     public void removeObserver(Monitor cli) {
@@ -30,15 +31,13 @@ public class ConcreteSubject_Acelerometro implements Subject{
 
     @Override
     public void notifyObservers() {
-        ConcreteObserver_Acelerometro co = new ConcreteObserver_Acelerometro();
+       
          float acel = getValue();
                     for (Monitor c : observers) {
-                       
-                        System.out.println("numero de monitor - " + c.getUser() + " - "+ co.update(acel) );
+                        ConcreteObserver_Acelerometro co = new ConcreteObserver_Acelerometro(c.getUser());
+                        co.update(acel);
                         
                     }
-    
-
     }
 
     @Override

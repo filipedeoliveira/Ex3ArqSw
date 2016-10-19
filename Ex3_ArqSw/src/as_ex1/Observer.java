@@ -7,6 +7,6 @@ package as_ex1;
 
 public interface Observer {
     
-      public String update(float value);
+      public void update(float value);
     
 }

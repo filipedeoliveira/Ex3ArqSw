@@ -35,11 +35,11 @@ public class ConcreteSubject_Temp implements Subject{
     @Override
     public void notifyObservers() {
 
-       ConcreteObserver_Temp co = new ConcreteObserver_Temp();
+       
         float temp = getValue();
-                  for (Monitor c : observers) {  
-                        System.out.println(">>>numero de monitor - " + c.getUser() + " - "+ co.update(temp));
-                        
+                  for (Monitor c : observers) { 
+                      ConcreteObserver_Temp co = new ConcreteObserver_Temp(c.getUser());
+                        co.update(temp);
                     }
     }
 

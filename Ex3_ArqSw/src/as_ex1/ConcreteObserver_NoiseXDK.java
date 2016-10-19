@@ -10,19 +10,23 @@ import java.util.Calendar;
 import java.util.Date;
 
 
-class ConcreteObserver_NoiseXDK implements Observer{
+class ConcreteObserver_NoiseXDK extends Monitor implements Observer {
+
+    public ConcreteObserver_NoiseXDK(int user) {
+        super(user);
+    }
     
     @Override
-    public String update(float value) {
+    public void update(float value) {
         String ruido = Float.toString(value);
               
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         Date hora = Calendar.getInstance().getTime(); // Ou qualquer outra forma que tem
         String dataFormatada = sdf.format(hora);
         
-        
+        //ConcreteSubject_NoiseXDK aux = new ConcreteSubject_NoiseXDK ();
 
-        return "(" + dataFormatada + ") " + ruido + " dB";
+        System.out.println( "###NoiseMonitor - " + getUser() + " Sensor NoiseXDK "  + "(" + dataFormatada + ") " + ruido + " dB");
 
     }
 

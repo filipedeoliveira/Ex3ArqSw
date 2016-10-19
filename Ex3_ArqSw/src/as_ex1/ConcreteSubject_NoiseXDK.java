@@ -21,8 +21,8 @@ public class ConcreteSubject_NoiseXDK implements Subject{
             this.ruido = rui;
     }
     
-    public int getID(){
-        return this.id;
+    public  int getID(){
+        return id;
     }
 
     @Override
@@ -38,11 +38,10 @@ public class ConcreteSubject_NoiseXDK implements Subject{
 
     @Override
     public void notifyObservers() {
-         ConcreteObserver_NoiseXDK co = new ConcreteObserver_NoiseXDK();
          float ruido = getValue();
                     for (Monitor c : observers) {                      
-                        System.out.println("###numero de NoiseMonitor " + c.getUser() + " - Sensor -" +  id + " - " + co.update(ruido) );
-                        
+                        ConcreteObserver_NoiseXDK co = new ConcreteObserver_NoiseXDK(c.getUser());
+                        co.update(ruido);
                     }
     
 

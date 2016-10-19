@@ -5,8 +5,10 @@
  */
 package as_ex1;
 
-public interface Observer {
-    
-      public String update(float value);
+public class NoiseMonitor extends Monitor{
+
+    public NoiseMonitor(int user) {
+        super(user);
+    }
     
 }

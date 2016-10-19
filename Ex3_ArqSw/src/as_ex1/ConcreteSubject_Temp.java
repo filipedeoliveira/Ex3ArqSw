@@ -10,42 +10,43 @@ import java.util.List;
 import java.util.Random;
 
 
-/**
- *
- * @author Stéphane
- */
 public class ConcreteSubject_Temp implements Subject{
-    private List<Cliente> observers = new ArrayList<Cliente>();
+    private List<Monitor> observers = new ArrayList<Monitor>();
     private float temperatura;
  
+        public ConcreteSubject_Temp(){
+        }
+        
        public ConcreteSubject_Temp(float temp) {
             this.temperatura = temp;
        }
 
     @Override
-    public void registerObserver(Cliente cli) {
+    public void registerObserver(Monitor cli) {
        observers.add(cli);
+       
     }
 
     @Override
-    public void removeObserver(Cliente cli) {
+    public void removeObserver(Monitor cli) {
         observers.remove(cli);
     }
 
     @Override
     public void notifyObservers() {
-        for (Cliente c : observers) {
-            float temp = getValue();
-            System.out.println("!A notificar os clientes!");
-              c.update(temp);
-              
-        }
+
+       ConcreteObserver_Temp co = new ConcreteObserver_Temp();
+        float temp = getValue();
+                  for (Monitor c : observers) {  
+                        System.out.println(">>>numero de monitor - " + c.getUser() + " - "+ co.update(temp));
+                        
+                    }
     }
 
     @Override
     public void setValue(float value) {
        this.temperatura = value;
-       this.notifyObservers();
+     
     }
 
     @Override

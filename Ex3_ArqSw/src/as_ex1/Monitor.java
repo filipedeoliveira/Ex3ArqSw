@@ -5,14 +5,11 @@
  */
 package as_ex1;
 
-/**
- *
- * @author Stéphane
- */
-public class Cliente {
+
+public class Monitor {
       private int user;
 
-    public Cliente(int user) {
+    public Monitor(int user) {
         this.user = user;
     }
 

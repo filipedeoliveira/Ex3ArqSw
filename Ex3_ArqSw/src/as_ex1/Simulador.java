@@ -7,10 +7,6 @@ package as_ex1;
 
 import java.util.Random;
 
-/**
- *
- * @author Stéphane
- */
 public class Simulador {
     
     public static String getTemperatura() {
